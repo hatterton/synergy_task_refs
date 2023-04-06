@@ -1,0 +1,9 @@
+statement.txt
+data/data_test.json
+
+.python-version
+
+**/db.sqlite3
+__pycache__/
+.mypy_cache/
+
