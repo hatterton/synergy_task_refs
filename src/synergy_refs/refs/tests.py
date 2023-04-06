@@ -8,7 +8,7 @@ from refs.models import User, UserGraph, RefLevel
 
 @pytest.fixture
 def ref_service():
-    data_path = "../../data/data1.json"
+    data_path = "../../data/data.json"
     return RefService(data_path)
 
 
