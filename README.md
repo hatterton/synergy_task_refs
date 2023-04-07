@@ -7,14 +7,24 @@
 
 ## Running
 
-To build container:
+1. Build container:
 ```bash
 make build
 ```
 
-Before running you may open `.envfile` and setup path to json file with test's refs with `USER_GRAPH_DATA_PATH`.
+2. Apply migrations:
+```
+make migrate
+```
 
-To run project enter:
+3. Load data to db:
+
+Before running you may open `.envfile` and setup path to json file with test's refs with `USER_GRAPH_DATA_PATH` to load data.
+```
+make reload-data
+```
+
+4. To run project enter:
 ```
 make run
 ```
@@ -28,8 +38,6 @@ Project will be uped on `127.0.0.1:8000` with docker.
     * `ref_level` - level of a user in a referal system
     * `team_size` - size of a user's team
     * `balance` - amount of money after adding 120 to all users and all ref-payments
-
-* `/refs/` - all information about all user - the same as previous but for all user. Be careful
 
 ## Tests
 

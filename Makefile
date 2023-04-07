@@ -1,9 +1,18 @@
 APP_NAME = synergy_refs
 
-# Containers
 .PHONY: run
 run:
 	docker-compose up $(APP_NAME)
+
+.PHONY: migrate
+migrate:
+	cd src && poetry run python synergy_refs/manage.py makemigrations refs
+	cd src && poetry run python synergy_refs/manage.py migrate
+
+.PHONY: reload-data
+reload-data:
+	docker-compose run $(APP_NAME) python manage.py flush --no-input
+	docker-compose run $(APP_NAME) python manage.py shell -c "from refs.utils import load_user_graph_data; load_user_graph_data()"
 
 .PHONY: build
 build:
