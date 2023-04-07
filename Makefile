@@ -6,8 +6,8 @@ run:
 
 .PHONY: migrate
 migrate:
-	cd src && poetry run python synergy_refs/manage.py makemigrations refs
-	cd src && poetry run python synergy_refs/manage.py migrate
+	docker-compose run $(APP_NAME) python manage.py makemigrations refs
+	docker-compose run $(APP_NAME) python manage.py migrate
 
 .PHONY: reload-data
 reload-data:
